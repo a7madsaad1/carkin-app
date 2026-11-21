@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carkin – مسح الحساب | Delete your account</title>
+<style>
+  :root { --bg:#F2F2F7; --card:#fff; --text:#1C1C1E; --muted:#6C6C70; --accent:#0B63D6; --critical:#C62828; --line:#D1D1D6; --ok:#1B7F3B; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.7 -apple-system, "Segoe UI", Tahoma, "Noto Sans Arabic", sans-serif; }
+  main { max-width:760px; margin:0 auto; padding:24px 16px 48px; }
+  h1 { font-size:28px; margin:0 0 4px; }
+  h2 { font-size:18px; margin:20px 0 6px; }
+  p, li { margin:0 0 8px; }
+  .card { background:var(--card); border-radius:16px; padding:20px; margin-bottom:16px; }
+  .muted { color:var(--muted); font-size:14px; }
+  a { color:var(--accent); }
+  label { display:block; font-weight:600; margin:12px 0 4px; }
+  input { width:100%; font:inherit; padding:12px 14px; border:1px solid var(--line); border-radius:12px; background:#fff; direction:ltr; text-align:left; }
+  button { font:inherit; font-weight:600; border:0; border-radius:12px; padding:12px 20px; margin-top:12px; cursor:pointer; min-height:48px; }
+  .primary { background:var(--accent); color:#fff; }
+  .danger { background:var(--critical); color:#fff; }
+  button:disabled { opacity:.5; cursor:default; }
+  .msg { margin-top:12px; font-weight:600; }
+  .err { color:var(--critical); }
+  .done { color:var(--ok); }
+  [hidden] { display:none !important; }
+  .en { direction:ltr; text-align:left; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Carkin</h1>
+  <p class="muted">من Synergex Fleet · by Synergex Fleet</p>
+
+  <section class="card">
+    <h1 style="font-size:22px">مسح حسابك في Carkin · Delete your Carkin account</h1>
+    <p><b>من البرنامج:</b> المزيد ← امسح حسابي ← امسح نهائي.<br><span class="en" style="display:block"><b>In the app:</b> More → Delete my account → Delete for good.</span></p>
+    <p><b>من هنا:</b> اكتب الإيميل اللي بتدخل بيه (أو إيميل حساب جوجل)، هيوصلك كود، اكتبه والحساب يتمسح على طول.<br><span class="en" style="display:block"><b>Here:</b> enter the email you sign in with (or your Google account's email), type the code we send you, and the account is deleted at once.</span></p>
+
+    <form id="f-email">
+      <label for="email">الإيميل · Email</label>
+      <input id="email" type="email" autocomplete="email" required placeholder="name@example.com">
+      <button class="primary" type="submit">ابعتلي كود · Send me a code</button>
+    </form>
+
+    <form id="f-code" hidden>
+      <label for="code">الكود اللي وصلك · The code you received</label>
+      <input id="code" inputmode="numeric" autocomplete="one-time-code" required placeholder="123456">
+      <button class="primary" type="submit">تأكيد · Confirm</button>
+    </form>
+
+    <div id="f-confirm" hidden>
+      <p><b>متأكد؟ الحساب ونسخه الاحتياطية هيتمسحوا ومش هيرجعوا.</b><br><span class="en" style="display:block"><b>Sure? The account and its backups will be deleted and can't be brought back.</b></span></p>
+      <button class="danger" id="go" type="button">امسح حسابي نهائي · Delete my account for good</button>
+    </div>
+
+    <p id="msg" class="msg" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="card">
+    <h2>إيه اللي بيتمسح · What is deleted</h2>
+    <ul>
+      <li>حسابك، ومكانك في العيلة، ونسخك الاحتياطية، ورمز التنبيهات.<br><span class="en" style="display:block">Your account, your place in the family, your backups and your push token.</span></li>
+      <li>لو انت آخر واحد بحساب في العيلة: العيلة كلها بعربياتها وتسجيلاتها.<br><span class="en" style="display:block">If you are the last person with an account in the family: the whole family, with its cars and records.</span></li>
+    </ul>
+    <h2>إيه اللي بيفضل · What is kept</h2>
+    <ul>
+      <li>تسجيلات العيلة المشتركة بتفضل لباقي الأفراد من غير ما تكون مربوطة بيك، وأقدم فرد بيبقى الأدمن.<br><span class="en" style="display:block">The family's shared records stay for the other members, no longer linked to you; the longest-standing member becomes admin.</span></li>
+      <li>اللي القانون بيطلب الاحتفاظ بيه، للمدة اللي بيطلبها بس.<br><span class="en" style="display:block">Anything the law requires us to keep, only for as long as it requires.</span></li>
+    </ul>
+    <p class="muted">لو استخدمت البرنامج من غير حساب، بياناتك على موبايلك بس، وبتتمسح لما تمسح البرنامج.<br>If you used the app without an account, your data is only on your phone and goes when you uninstall the app.</p>
+  </section>
+
+  <p class="muted" style="text-align:center"><a href="privacy.html">سياسة الخصوصية · Privacy Policy</a> · <a href="mailto:synergexfleet@gmail.com">synergexfleet@gmail.com</a> · © 2026 Synergex Fleet</p>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
+<script>
+  // The same public address and publishable key the app ships with (safe to be public: every
+  // table and function is protected on the server). The deletion runs the server's own
+  // delete_my_account(), exactly like the button in the app.
+  var SB = supabase.createClient('https://bgnnwyxtawfobklckmcx.supabase.co', 'sb_publishable_3MM3wymQDP890_ufen84Dg_zZk8RSvQ', { auth: { persistSession: false } });
+  var $ = function (id) { return document.getElementById(id); };
+  var email = '';
+  function say(text, kind) { var m = $('msg'); m.textContent = text; m.className = 'msg ' + (kind || ''); }
+  function busy(form, on) { form.querySelectorAll('button').forEach(function (b) { b.disabled = on; }); }
+
+  $('f-email').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    email = $('email').value.trim().toLowerCase();
+    busy(this, true); say('لحظة… · One moment…');
+    var r = await SB.auth.signInWithOtp({ email: email, options: { shouldCreateUser: false } });
+    busy(this, false);
+    // Same answer whether or not the email has an account, so nobody can test addresses here.
+    if (r.error && !/not found|signups not allowed/i.test(r.error.message)) { say('مقدرناش نبعت الكود، جرّب كمان شوية. · Couldn’t send the code, try again shortly.', 'err'); return; }
+    $('f-email').hidden = true; $('f-code').hidden = false; $('code').focus();
+    say('لو الإيميل ده عليه حساب، هيوصلك كود خلال دقيقة. · If this email has an account, a code arrives within a minute.');
+  });
+
+  $('f-code').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    busy(this, true); say('لحظة… · One moment…');
+    var r = await SB.auth.verifyOtp({ email: email, token: $('code').value.replace(/\D/g, ''), type: 'email' });
+    busy(this, false);
+    if (r.error || !r.data.session) { say('الكود غلط أو خلص. · The code is wrong or has expired.', 'err'); return; }
+    $('f-code').hidden = true; $('f-confirm').hidden = false; say('');
+  });
+
+  $('go').addEventListener('click', async function () {
+    this.disabled = true; say('بنمسح… · Deleting…');
+    var r = await SB.rpc('delete_my_account');
+    if (r.error) { this.disabled = false; say('حصل خطأ، جرّب تاني. · Something went wrong, try again.', 'err'); return; }
+    await SB.auth.signOut({ scope: 'local' }).catch(function () {});
+    $('f-confirm').hidden = true;
+    say('تم. حسابك اتمسح. · Done. Your account has been deleted.', 'done');
+  });
+</script>
+</body>
+</html>
