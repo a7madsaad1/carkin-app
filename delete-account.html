@@ -27,6 +27,8 @@
   [hidden] { display:none !important; }
   .en { direction:ltr; text-align:left; }
 </style>
+<style id="noframe">html{display:none}</style>
+<script>if (self === top) { document.getElementById("noframe").remove(); } else { top.location = self.location; }</script>
 </head>
 <body>
 <main>
@@ -75,7 +77,7 @@
   <p class="muted" style="text-align:center"><a href="privacy.html">سياسة الخصوصية · Privacy Policy</a> · <a href="mailto:synergexfleet@gmail.com">synergexfleet@gmail.com</a> · © 2026 Synergex Fleet</p>
 </main>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/dist/umd/supabase.js" integrity="sha384-TcHRA3zBbn+Lexh5n+Oil4guNPOS3rjNDpGRAN46u/s/mB2IZ50ceC6TYDU2yvgK" crossorigin="anonymous"></script>
 <script>
   // The same public address and publishable key the app ships with (safe to be public: every
   // table and function is protected on the server). The deletion runs the server's own
